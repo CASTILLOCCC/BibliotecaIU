@@ -4,7 +4,7 @@
 <head>
 </head>
 <body>
-Agregar Autores
+Agregar Stock
 </body>
 
 </html>

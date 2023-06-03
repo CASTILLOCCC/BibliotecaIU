@@ -14,13 +14,14 @@ return new class extends Migration
         Schema::create('prestamos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('codigoUsuario');
-            $table->unsignedBigInteger('codigoEjemplar');
+            $table->unsignedBigInteger('codigoLibro');
             $table->date('fechaPrestamo');
             $table->date('fechaDevolucion');
+            $table->integer('cantidad');
             //Referencia de la clave foranea.
             $table->foreign('codigoUsuario')->references('id')->on('usuario');
-            $table->foreign('codigoEjemplar')->references('id')->on('ejemplar');
-            
+            $table->foreign('codigoLibro')->references('id')->on('Libro');
+            $table->timestamps();
         });
     }
 

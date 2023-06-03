@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ejemplar', function (Blueprint $table) {
+        Schema::create('stock', function (Blueprint $table) {
             $table->id();
-            $table->string('localizacion');
             $table->unsignedBigInteger('codigoLibro');
-            //Referencia de la clave foranea.
+            $table->Integer('cantidadIngreso');
+            $table->date('fechaIngreso');
+
             $table->foreign('codigoLibro')->references('id')->on('libro');
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ejemplar');
+        Schema::dropIfExists('stock');
     }
 };
