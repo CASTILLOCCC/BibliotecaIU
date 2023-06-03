@@ -15,12 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('titulo');
             $table->string('isbn');
-            $table->unsignedBigInteger('codigoEditorial');
+            $table->string('Editorial');
             $table->bigInteger('paginas');
             $table->unsignedBigInteger('codigoAutor');
             //Referencia de la clave foranea.
-            $table->foreign('codigoEditorial')->references('id')->on('editorial');
-            $table->foreign('codigoAutor')->references('id')->on('autor');
+                       $table->foreign('codigoAutor')->references('id')->on('autor');
         });
     }
 
@@ -32,3 +31,4 @@ return new class extends Migration
         Schema::dropIfExists('libro');
     }
 };
+  

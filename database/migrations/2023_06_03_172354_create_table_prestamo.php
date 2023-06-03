@@ -10,18 +10,18 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
+   {
         Schema::create('prestamos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('codigoUsuario');
-            $table->unsignedBigInteger('codigoLibro');
+            $table->unsignedBigInteger('codigoEjemplar');
             $table->date('fechaPrestamo');
             $table->date('fechaDevolucion');
             $table->integer('cantidad');
             //Referencia de la clave foranea.
             $table->foreign('codigoUsuario')->references('id')->on('usuario');
-            $table->foreign('codigoLibro')->references('id')->on('Libro');
-            $table->timestamps();
+            $table->foreign('codigoEjemplar')->references('id')->on('ejemplar');
+        
         });
     }
 
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('prestamos');
+        Schema::dropIfExists('prestamo');
     }
 };

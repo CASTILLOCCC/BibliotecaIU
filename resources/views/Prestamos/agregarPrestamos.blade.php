@@ -20,7 +20,7 @@
                   <b>Cantidad</b> 
               </td>
               <td>
-                  <b>Editorial</b> 
+                  <b>Ejemplar</b> 
               </td>
               <td>
                   <b>Fecha Prestamo</b> 
@@ -43,7 +43,7 @@
               {{ $item->cantidad }}
           </td>
           <td>
-            {{ $item->editorial}}
+            {{ $item->ejemplar}}
         </td>
           <td>
               {{ $item->fechaPrestamo}}

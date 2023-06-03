@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('autor', function (Blueprint $table) {
+        Schema::create('ejemplar', function (Blueprint $table) {
             $table->id();
-            $table->string('nombreAutor');
-            $table->unsignedBigInteger('codigoEditorial');
+            $table->string('localizacion');
+            $table->integer('cantidad');
+            $table->unsignedBigInteger('codigoLibro');
             //Referencia de la clave foranea.
-            $table->foreign('codigoEditorial')->references('id')->on('editorial');
+            $table->foreign('codigoLibro')->references('id')->on('libro');
         });
     }
 
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('autor');
+        Schema::dropIfExists('ejemplar');
     }
 };

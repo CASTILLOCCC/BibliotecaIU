@@ -4,8 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AutorController;
 use App\Http\Controllers\PrestamosController;
 use App\Http\Controllers\LibroController;
-use App\Http\Controllers\EditorialController;
-use App\Http\Controllers\StockController;
+use App\Http\Controllers\EjemplarController;
 use App\Http\Controllers\UsuarioController;
 
 /*
@@ -25,10 +24,9 @@ Route::get('/', function () {
 });
 
 
-Route::get('/autors', [AutorController::class, 'index'])->name('autors.index');
+Route::get('/autores', [AutorController::class, 'index'])->name('autores.index');
 Route::get('/prestamos', [PrestamosController::class, 'index'])->name('prestamos.index');
 Route::get('/libros', [LibroController::class, 'index'])->name('libros.index');
-Route::get('/editorial', [EditorialController::class, 'index'])->name('editorial.index');
-Route::get('/stock', [StockController::class, 'index'])->name('stock.index');
+Route::get('/ejemplares', [EjemplarController::class, 'index'])->name('ejemplares.index');
 Route::get('/usuarios', [UsuarioController::class, 'index'])->name('usuarios.index');
 

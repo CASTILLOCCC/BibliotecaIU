@@ -11,7 +11,7 @@ class PrestamosController extends Controller
     {
         $ListaPrestamoPersonal = Prestamo::join('libro','prestamos.codigoLibro', '=', 'libro.id')
         ->join('autor','libro.codigoAutor', '=', 'autor.id')
-        ->join('editorial','libro.codigoAutor', '=', 'autor.id')
+        ->join('ejemplar','libro.codigoAutor', '=', 'autor.id')
             ->select('libro.titulo', 'prestamos.*', 'autor.nombreAutor')
             ->get();
              

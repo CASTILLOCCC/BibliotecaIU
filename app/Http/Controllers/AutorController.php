@@ -9,7 +9,7 @@ class AutorController extends Controller
     public function index()
     {
         
-        return view('Autors.agregarAutores');
+        return view('Autores.agregarAutores');
     }
 
 }

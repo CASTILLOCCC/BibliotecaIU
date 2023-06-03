@@ -4,7 +4,7 @@
 <head>
 </head>
 <body>
-Agregar Stock
+Agregar Ejemplar
 </body>
 
 </html>
