@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Usuario;
+use Ususario;
 
 class UsuarioController extends Controller
 {
     public function index()
     {
-        
+      
         return view('Usuarios.agregarUsuarios');
     }
 

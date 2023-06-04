@@ -24,12 +24,18 @@ Route::get('/', function () {
     
 });
 
+use App\Http\Controllers\PrestamoController;
+
+Route::post('/consumoUno', [PrestamosController::class, 'consumoUno'])->name('consumoUno');
+Route::post('/consumoDos', [PrestamosController::class, 'consumoDos'])->name('consumoDos');
+Route::post('/consumoTres', [PrestamosController::class, 'consumoTres'])->name('consumoTres');
 
 Route::get('/autores', [AutorController::class, 'index'])->name('autores.index');
 Route::get('/prestamos', [PrestamosController::class, 'index'])->name('prestamos.index');
 Route::get('/libros', [LibroController::class, 'index'])->name('libros.index');
 Route::get('/ejemplares', [EjemplarController::class, 'index'])->name('ejemplares.index');
 Route::get('/usuarios', [UsuarioController::class, 'index'])->name('usuarios.index');
+Route::get('/dropdown', 'UserController@index');
 
 Route::get('/search', function (Request $request) {
     $query = $request->input('query');

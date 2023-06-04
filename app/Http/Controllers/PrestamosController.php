@@ -10,22 +10,16 @@ use App\Models\Autores;
 
 
 class PrestamosController extends Controller
-{
+{    
     public function index()
-    {
-        // $ListaPrestamoPersonal = Prestamo::join('ejemplar','prestamos.codigoEjemplar', '=', 'ejemplar.id')
-        // ->join('libro','ejemplar.codigoLibro', '=', 'libro.id')
-        // ->join('autor','libro.codigoAutor', '=', 'autor.id')
-        //     ->select('libro.titulo', 'prestamos.*', 'autor.nombreAutor', 'libro.editorial')
-        //     ->get();
-             
-            $superPantalla = [
+    {            
+           $superPantalla = [
                 'ListaPrestamoPersonal' => Prestamos::join('ejemplar','prestamos.codigoEjemplar', '=', 'ejemplar.id')
                 ->join('libro','ejemplar.codigoLibro', '=', 'libro.id')
                 ->join('autores','libro.codigoAutor', '=', 'autores.id')
                     ->select('libro.titulo', 'prestamos.*', 'autores.nombreAutor', 'libro.editorial')
                     ->get(),
-                'ListaUsuarios' => Usuarios::all()
+                    'ListaUsuarios' => Usuarios::all()
             ];
 
 
@@ -33,4 +27,23 @@ class PrestamosController extends Controller
             "superPantalla" =>$superPantalla]);
     }
 
+    public function consumoUno()
+    {
+        $superPantalla = [
+            'ListaPrestamoPersonal' => Prestamos::join('ejemplar','prestamos.codigoEjemplar', '=', 'ejemplar.id')
+            ->join('libro','ejemplar.codigoLibro', '=', 'libro.id')
+            ->join('autores','libro.codigoAutor', '=', 'autores.id')
+                ->select('libro.titulo', 'prestamos.*', 'autores.nombreAutor', 'libro.editorial')
+                ->get(),
+            'ListaUsuarios' => Usuarios::where('id', '2')->get()
+        ];
+
+     
+
+    return view('Prestamos.agregarPrestamos',[
+        "superPantalla" =>$superPantalla]);
+    }
+ 
 }
+
+

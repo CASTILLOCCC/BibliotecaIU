@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
   <title>Lista de Préstamo Personal</title>
@@ -6,6 +7,21 @@
 </head>
 <body>
   <div class="container">
+    <form action="{{ route('consumoUno') }}" method="POST">
+        @csrf
+    <div id="dropdown">
+        <h3>Buscar Usuario</h3>
+        <select name="persona" class="form-control">
+            <option value="">Selecciona un usuario</option>
+            @foreach($superPantalla['ListaUsuarios'] as $usuario)
+                <option value="{{ $usuario->id }}">{{ $usuario->nombreUsuario }}</option>
+            @endforeach
+        </select>
+        <input type="submit" value="Buscar por persona">
+    </div>
+    </form>
+<br>
+    <div id="grillaPrestamo">
     <h1>Lista de Préstamo Personal</h1>
     <table class="table table-striped" style="width: 80%; margin: 0px auto; text-align: center">
       <thead>
@@ -58,6 +74,10 @@
   
   </tbody>
   </table>
+</div>
+@foreach($superPantalla['ListaUsuarios'] as $usuario)
+                <option value="{{ $usuario->id }}">{{ $usuario->nombreUsuario }}</option>
+            @endforeach
   </div>
 </body>
 </html>
