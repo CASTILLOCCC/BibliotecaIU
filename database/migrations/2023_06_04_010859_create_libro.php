@@ -19,7 +19,7 @@ return new class extends Migration
             $table->bigInteger('paginas');
             $table->unsignedBigInteger('codigoAutor');
             //Referencia de la clave foranea.
-                       $table->foreign('codigoAutor')->references('id')->on('autor');
+            $table->foreign('codigoAutor')->references('id')->on('autores');
         });
     }
 
@@ -31,4 +31,3 @@ return new class extends Migration
         Schema::dropIfExists('libro');
     }
 };
-  

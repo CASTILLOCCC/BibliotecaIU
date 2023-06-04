@@ -10,7 +10,7 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-   {
+    {
         Schema::create('prestamos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('codigoUsuario');
@@ -19,9 +19,8 @@ return new class extends Migration
             $table->date('fechaDevolucion');
             $table->integer('cantidad');
             //Referencia de la clave foranea.
-            $table->foreign('codigoUsuario')->references('id')->on('usuario');
+            $table->foreign('codigoUsuario')->references('id')->on('usuarios');
             $table->foreign('codigoEjemplar')->references('id')->on('ejemplar');
-        
         });
     }
 
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('prestamo');
+        Schema::dropIfExists('prestamos');
     }
 };

@@ -6,6 +6,7 @@ use App\Http\Controllers\PrestamosController;
 use App\Http\Controllers\LibroController;
 use App\Http\Controllers\EjemplarController;
 use App\Http\Controllers\UsuarioController;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +30,12 @@ Route::get('/prestamos', [PrestamosController::class, 'index'])->name('prestamos
 Route::get('/libros', [LibroController::class, 'index'])->name('libros.index');
 Route::get('/ejemplares', [EjemplarController::class, 'index'])->name('ejemplares.index');
 Route::get('/usuarios', [UsuarioController::class, 'index'])->name('usuarios.index');
+
+Route::get('/search', function (Request $request) {
+    $query = $request->input('query');
+
+    $results = ['Resultado 1', 'Resultado 2', 'Resultado 3'];
+
+    return view('search', compact('results'));
+})->name('search');
 

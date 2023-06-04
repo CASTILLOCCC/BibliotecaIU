@@ -20,7 +20,7 @@
                   <b>Cantidad</b> 
               </td>
               <td>
-                  <b>Ejemplar</b> 
+                  <b>Editorial</b> 
               </td>
               <td>
                   <b>Fecha Prestamo</b> 
@@ -31,7 +31,7 @@
           </tr>
       </thead>
   <tbody>
-      @foreach ($ListaPrestamoPersonal as $item)
+      @foreach ($superPantalla['ListaPrestamoPersonal'] as $item)
       <tr>
           <td>
               {{ $item->titulo }}
@@ -43,7 +43,7 @@
               {{ $item->cantidad }}
           </td>
           <td>
-            {{ $item->ejemplar}}
+            {{ $item->editorial}}
         </td>
           <td>
               {{ $item->fechaPrestamo}}

@@ -1,22 +1,36 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\autorLibro;
+use App\Models\usuarioPrestamo;
+use App\Models\Usuarios;
 use Illuminate\Http\Request;
-use App\Models\Prestamo;
+use App\Models\Prestamos;
+use App\Models\Autores;
+
 
 class PrestamosController extends Controller
 {
     public function index()
     {
-        $ListaPrestamoPersonal = Prestamo::join('libro','prestamos.codigoLibro', '=', 'libro.id')
-        ->join('autor','libro.codigoAutor', '=', 'autor.id')
-        ->join('ejemplar','libro.codigoAutor', '=', 'autor.id')
-            ->select('libro.titulo', 'prestamos.*', 'autor.nombreAutor')
-            ->get();
+        // $ListaPrestamoPersonal = Prestamo::join('ejemplar','prestamos.codigoEjemplar', '=', 'ejemplar.id')
+        // ->join('libro','ejemplar.codigoLibro', '=', 'libro.id')
+        // ->join('autor','libro.codigoAutor', '=', 'autor.id')
+        //     ->select('libro.titulo', 'prestamos.*', 'autor.nombreAutor', 'libro.editorial')
+        //     ->get();
              
+            $superPantalla = [
+                'ListaPrestamoPersonal' => Prestamos::join('ejemplar','prestamos.codigoEjemplar', '=', 'ejemplar.id')
+                ->join('libro','ejemplar.codigoLibro', '=', 'libro.id')
+                ->join('autores','libro.codigoAutor', '=', 'autores.id')
+                    ->select('libro.titulo', 'prestamos.*', 'autores.nombreAutor', 'libro.editorial')
+                    ->get(),
+                'ListaUsuarios' => Usuarios::all()
+            ];
+
+
         return view('Prestamos.agregarPrestamos',[
-            "ListaPrestamoPersonal" =>$ListaPrestamoPersonal]);
+            "superPantalla" =>$superPantalla]);
     }
 
 }
