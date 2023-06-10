@@ -6,6 +6,7 @@ use App\Http\Controllers\PrestamosController;
 use App\Http\Controllers\LibroController;
 use App\Http\Controllers\EjemplarController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\IndexController;
 use Illuminate\Http\Request;
 
 /*
@@ -33,9 +34,12 @@ Route::post('/consumoTres', [PrestamosController::class, 'consumoTres'])->name('
 Route::get('/autores', [AutorController::class, 'index'])->name('autores.index');
 Route::get('/prestamos', [PrestamosController::class, 'index'])->name('prestamos.index');
 Route::get('/libros', [LibroController::class, 'index'])->name('libros.index');
+Route::get('/libros/create', [LibroController::class, 'create'])->name('libros.create');
 Route::get('/ejemplares', [EjemplarController::class, 'index'])->name('ejemplares.index');
 Route::get('/usuarios', [UsuarioController::class, 'index'])->name('usuarios.index');
 Route::get('/dropdown', 'UserController@index');
+Route::get('/index', [IndexController::class, 'index'])->name('index.index');
+
 
 Route::get('/search', function (Request $request) {
     $query = $request->input('query');

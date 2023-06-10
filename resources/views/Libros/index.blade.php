@@ -1,41 +1,48 @@
 @extends('layouts.base')
-@section ('content')
+@section('content')
 
-<form action="/libros" method= "POST">
 
-    <div class="container mt-4">
-        <h2>Crear Libro</h2>
+<table class="table table-striped">
+    <thead>
+<tr>
+    <div class="p-6 text-gray-900">
+        <main>
+          <div class="container py-4">
+              <a  href="{{url('libros/create')}}" class="btn btn-primary btn btn-sm">Agregar Libro</a>
+          </div>
+
+</tr>
+
+<tr>
+    <th>Código</th>
+     <th>Título</th>
+      <th>Páginas</th>
+       <th>ISBN</th>
+        <th>Editorial</th>
+        <th>Autor</th>
+</tr>
+    </thead>
+
+<tbody>
+@foreach ($libros as $libro )
+<tr>
+<td>{{ $libro->codigo }}</td>
+<td>{{ $libro->titulo }}</td>
+<td>{{ $libro->paginas }}</td>
+<td>{{ $libro->isbn }}</td>
+<td>{{ $libro->editorial }}</td>
+<td>{{ $libro->codigoAutor}}</td>
+<td> <a class="btn btn-danger" href="/libros/{{ $libro->codigo}}/edit">Editar</a></td>
+<td> <a class="btn btn-danger" href="/libros/{{ $libro->codigo}}/confirmDelete">Eliminar</a></td>
+
+</tr>
     
-        <form>
-          <div class="form-group col-6">
-            <label for="codigo">Código:</label>
-            <input type="text" class="form-control" id="codigo" name="codigo">
-          </div>
-          <div class="form-group col-6">
-            <label for="titulo">Título:</label>
-            <input type="text" class="form-control" id="titulo" name="titulo">
-          </div>
-          <div class="form-group col-6">
-            <label for="isbn">ISBN:</label>
-            <input type="text" class="form-control" id="isbn" name="isbn">
-          </div>
-          <div class="form-group col-6">
-            <label for="editorial">Editorial:</label>
-            <input type="text" class="form-control" id="editorial" name="editorial">
-          </div>
-          <div class="form-group col-6">
-            <label for="paginas">Páginas:</label>
-            <input type="number" class="form-control" id="paginas" name="paginas">
-          </div>
-          <div class="form-group col-6">
-            <label for="autor">Autor:</label>
-            <input type="text" class="form-control" id="autor" name="autor">
-          </div>
-          <br>
-<a class="btn btn-primary" href="/libros">Regresar</a>
-<button type= "submit" class="btn btn-primary ">Guardar</button>
-</form>
-
+@endforeach
+</tbody>
+</table>
+<br>
+<br>
+<br>
 
 <footer class="bg-light text-center text-white">
     <!-- Grid container -->
@@ -95,10 +102,3 @@
 
 
 @endsection('content')
-
-
-
-
-
-
-

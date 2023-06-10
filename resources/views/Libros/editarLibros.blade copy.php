@@ -4,7 +4,7 @@
 <form action="/libros" method= "POST">
 
     <div class="container mt-4">
-        <h2>Crear Libro</h2>
+        <h2>Editar Libro</h2>
     
         <form>
           <div class="form-group col-6">
@@ -31,6 +31,8 @@
             <label for="autor">Autor:</label>
             <input type="text" class="form-control" id="autor" name="autor">
           </div>
+ 
+ 
           <br>
 <a class="btn btn-primary" href="/libros">Regresar</a>
 <button type= "submit" class="btn btn-primary ">Guardar</button>
@@ -95,9 +97,6 @@
 
 
 @endsection('content')
-
-
-
 
 
 

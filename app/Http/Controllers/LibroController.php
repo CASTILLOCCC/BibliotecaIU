@@ -10,11 +10,11 @@ class LibroController extends Controller
     public function index()
     {
         
-        return view('Libros.agregarLibros');
+        return view('Libros.index',['libros'=>Libro::all()]);
     }
     public function create()
     {
-        //
+        return view('Libros.agregarLibros',['libros'=>Libro::all()]);
     }
 
     /**
@@ -22,7 +22,15 @@ class LibroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $autor = new Libro ();
+        $autor->titulo =$request->get('titulo');
+        $autor->ISBN =$request->get('isbn');
+        $autor->Editorial =$request->get('editorial');
+        $autor->paginas =$request->get('paginas');
+        $autor->codigoAutor =$request->get('autor');
+        $autor->save();
+ 
+        return redirect('/libros');
     }
 
     /**
