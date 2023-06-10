@@ -1,6 +1,14 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
 @extends('layouts.base')
 @section('content')
        
+
             
             <div id="white" class="col-1">
             </div>
@@ -9,29 +17,36 @@
   </div>
             <div id = "white" class="col-5" >
                 <br>
-                <br>
-              <div id="carouselExample" class="carousel slide">
-                <div class="carousel-inner">
-                  <div class="carousel-item active" style="align-items: center;">
-                    <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.questionpro.com%2Fblog%2Fwp-content%2Fuploads%2F2019%2F01%2F923.jpg&tbnid=-J7vNvcYOYTYNM&vet=12ahUKEwjQwonvxbf_AhUmbDABHdiDBZEQMygVegUIARC6Ag..i&imgrefurl=https%3A%2F%2Fwww.questionpro.com%2Fblog%2Fes%2Fencuestas-para-bibliotecas%2F&docid=TQBTJ0uRGMFMdM&w=900&h=600&q=imagenes%20bibliotecas&hl=es&ved=2ahUKEwjQwonvxbf_AhUmbDABHdiDBZEQMygVegUIARC6Ag" style="width:100%; height:300px;">                
+
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                  <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                  </ol>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="https://www.iudigital.edu.co/Centro-de-Recursos-para-el-Aprendizaje-y-la-Investigacion-CRAI/PublishingImages/Micrositio/Carousel/25112021_carrusel_crai_1.jpg" class="d-block w-100" alt="Imagen 1">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="https://www.iudigital.edu.co/CRAI/SliderHomeCrai/buscar%20en%20BD.png" class="d-block w-100" alt="Imagen 2">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="https://www.iudigital.edu.co/Centro-de-Recursos-para-el-Aprendizaje-y-la-Investigacion-CRAI/PublishingImages/Micrositio/Carousel/4.4.png" class="d-block w-100" alt="Imagen 3">
+                    </div>
                   </div>
-                  <div class="carousel-item active" style="align-items: center;">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStTGcI7KHhXlfMQBI9w2TxtF2mMzAx_yIQxQ&usqp=CAU" style="width:100%;height:300px;">
-                  </div>
-                  <div class="carousel-item active" style="align-items: center;">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXZ0K8xF270QXjApAq1gSJy30cT24h_6h_xA&usqp=CAU" style="width:100%;height:300px;">
-                  </div>
+                  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Anterior</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Siguiente</span>
+                  </a>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
-              
+                <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
             </div>
             
@@ -47,6 +62,7 @@
             <div id= "white"class="col-1">
             </div>
                 <footer class="bg-light text-center text-white">
+
                     <!-- Grid container -->
                     <div style="">
                     <div class="container p-4 pb-0" >
@@ -101,6 +117,5 @@
                     </div>
                     <!-- Copyright -->
                   </footer>
-
 
  @endsection('content')

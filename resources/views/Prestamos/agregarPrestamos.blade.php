@@ -9,10 +9,10 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-  <div class="container">
+  <div class="container col-8">
     <form action="{{ route('consumoUno') }}" method="POST">
         @csrf
-    <div id="dropdown">
+    <div id="dropdown" >
         <h3>Buscar Usuario</h3>
         <select name="persona" class="form-control">
             <option value="">Selecciona un usuario</option>
@@ -20,13 +20,14 @@
                 <option value="{{ $usuario->id }}">{{ $usuario->nombreUsuario }}</option>
             @endforeach
         </select>
+        <br>
         <input type="submit" value="Buscar por persona">
     </div>
     </form>
 <br>
     <div id="grillaPrestamo">
-    <h1>Lista de Préstamo Personal</h1>
-    <table class="table table-striped" style="width: 80%; margin: 0px auto; text-align: center">
+    <h3>Lista de Préstamo Personal</h3>
+    <table class="table table-striped" style="width: 100%; margin: 0px auto; text-align: center">
       <thead>
           <tr>
               <td>
