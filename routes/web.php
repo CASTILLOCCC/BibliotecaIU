@@ -31,6 +31,8 @@ Route::post('/consumoUno', [PrestamosController::class, 'consumoUno'])->name('co
 Route::post('/consumoDos', [PrestamosController::class, 'consumoDos'])->name('consumoDos');
 Route::post('/consumoTres', [PrestamosController::class, 'consumoTres'])->name('consumoTres');
 
+Route::post('/libros/store', [LibroController::class, 'store'])->name('libros.store');
+
 Route::get('/autores', [AutorController::class, 'index'])->name('autores.index');
 Route::get('/prestamos', [PrestamosController::class, 'index'])->name('prestamos.index');
 Route::get('/libros', [LibroController::class, 'index'])->name('libros.index');

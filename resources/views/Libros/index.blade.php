@@ -1,7 +1,11 @@
 @extends('layouts.base')
 @section('content')
 
-
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
 <table class="table table-striped">
     <thead>
 <tr>
@@ -20,6 +24,8 @@
        <th>Editorial</th>
         <th>Páginas</th>
         <th>Autor</th>
+        <th>Acción</th>
+
 </tr>
     </thead>
 
@@ -32,12 +38,10 @@
 <td>{{ $libro->Editorial }}</td>
 <td>{{ $libro->Paginas }}</td>
 <td>{{ $libro->codigoAutor}}</td>
-<td><a class="btn btn-danger" href="/Libros/{{$libro->id}}/edit">Editar</a></td>
-<td><a class="btn btn-danger" href="/Libros/{{$libro->id}}/confirmDelete">Eliminar</a></td>
+<td><a class="btn btn-primary" href="/Libros/{{$libro->id}}/edit"><small>Modificar</small></a>
+  <a class="btn btn-danger" href="/Libros/{{$libro->id}}/confirmDelete"><small>Eliminar</small></a></td>
 </tr>
 
-
-    
 @endforeach
 </tbody>
 </table>

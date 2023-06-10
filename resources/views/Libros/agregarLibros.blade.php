@@ -1,8 +1,8 @@
 @extends('layouts.base')
 @section ('content')
 
-<form action="/libros" method= "POST">
-
+  <form action="{{ route('libros.store')}}" method="post">
+    @csrf
     <div class="container mt-4">
         <h2>Crear Libro</h2>
     
