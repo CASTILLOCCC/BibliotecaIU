@@ -36,7 +36,7 @@
 <td>{{ $libro->titulo }}</td>
 <td>{{ $libro->isbn }}</td>
 <td>{{ $libro->Editorial }}</td>
-<td>{{ $libro->Paginas }}</td>
+<td>{{ $libro->paginas }}</td>
 <td>{{ $libro->codigoAutor}}</td>
 <td><a class="btn btn-primary" href="/Libros/{{$libro->id}}/edit"><small>Modificar</small></a>
   <a class="btn btn-danger" href="/Libros/{{$libro->id}}/confirmDelete"><small>Eliminar</small></a></td>
