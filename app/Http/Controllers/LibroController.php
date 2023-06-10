@@ -7,6 +7,13 @@ use App\Models\Libro;
 
 class LibroController extends Controller
 {
+    private $id;
+    private $titulo;
+    private $isbn;
+    private $editorial;
+    private $paginas;
+    private $codigoAutor;
+    
     public function index()
     {
         

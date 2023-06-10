@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 class AutorController extends Controller
 {
+    private $id;
+    private $nombreAutor;
+  
     public function index()
     {
         

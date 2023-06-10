@@ -16,9 +16,9 @@
 <tr>
     <th>Código</th>
      <th>Título</th>
-      <th>Páginas</th>
-       <th>ISBN</th>
-        <th>Editorial</th>
+      <th>ISBN</th>
+       <th>Editorial</th>
+        <th>Páginas</th>
         <th>Autor</th>
 </tr>
     </thead>
@@ -26,16 +26,17 @@
 <tbody>
 @foreach ($libros as $libro )
 <tr>
-<td>{{ $libro->codigo }}</td>
+<td>{{ $libro->id }}</td>
 <td>{{ $libro->titulo }}</td>
-<td>{{ $libro->paginas }}</td>
 <td>{{ $libro->isbn }}</td>
-<td>{{ $libro->editorial }}</td>
+<td>{{ $libro->Editorial }}</td>
+<td>{{ $libro->Paginas }}</td>
 <td>{{ $libro->codigoAutor}}</td>
-<td> <a class="btn btn-danger" href="/libros/{{ $libro->codigo}}/edit">Editar</a></td>
-<td> <a class="btn btn-danger" href="/libros/{{ $libro->codigo}}/confirmDelete">Eliminar</a></td>
-
+<td><a class="btn btn-danger" href="/Libros/{{$libro->id}}/edit">Editar</a></td>
+<td><a class="btn btn-danger" href="/Libros/{{$libro->id}}/confirmDelete">Eliminar</a></td>
 </tr>
+
+
     
 @endforeach
 </tbody>

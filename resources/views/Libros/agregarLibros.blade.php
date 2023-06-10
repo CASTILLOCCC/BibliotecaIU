@@ -31,6 +31,7 @@
             <label for="autor">Autor:</label>
             <input type="text" class="form-control" id="autor" name="autor">
           </div>
+          
           <br>
 <a class="btn btn-primary" href="/libros">Regresar</a>
 <button type= "submit" class="btn btn-primary ">Guardar</button>
