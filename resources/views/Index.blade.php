@@ -1,15 +1,6 @@
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-
 @extends('layouts.base')
 @section('content')
-       
-
-            
+           
             <div id="white" class="col-1">
             </div>
         <div class="row">
@@ -55,7 +46,7 @@
             <div id="white" class="col-4">
                 Romero (2003) señala que:
 
-                «Las bibliotecas universitarias son complejas instituciones con una gran variedad de roles que ofrecen productos y servicios desarrollados a lo largo de la historia y cuyo fin fundamental ha permanecido siendo el mismo: ofrecer acceso al conocimiento científico y de calidad. Ninguna otra institución habría podido arrebatarle su primacía como líder en el suministro de información científica e histórica, hasta el punto de ser consideradas iconos culturales por su papel de guardianes del conocimiento científico (…)
+                « El CRAI o Las bibliotecas universitarias son complejas instituciones con una gran variedad de roles que ofrecen productos y servicios desarrollados a lo largo de la historia y cuyo fin fundamental ha permanecido siendo el mismo: ofrecer acceso al conocimiento científico y de calidad. Ninguna otra institución habría podido arrebatarle su primacía como líder en el suministro de información científica e histórica, hasta el punto de ser consideradas iconos culturales por su papel de guardianes del conocimiento científico (…)
                 
                 Sin embargo, hoy día somos testigos de que su papel de instituciones líderes en el suministro de la información está cambiando y las bibliotecas están renunciando a ese puesto debido básicamente al impacto de la tecnología digital, que ha inundado cada aspecto de nuestra civilización y ha supuesto una revolución no solo en la forma en que almacenamos y transmitimos la información sino también en cómo la buscamos o accedemos a ella (p. 1).»
             </div>

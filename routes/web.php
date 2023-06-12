@@ -24,8 +24,14 @@ Route::get('/', function () {
     return view('welcome');
     
 });
+Route::get('/', [IndexController::class, 'Index']);
+Route::resource('/Autores', AutorController::class);
+Route::get('/Autores/{id}/confirmDelete',[AutorController::class,'confirmDelete']);
 
-use App\Http\Controllers\PrestamoController;
+Route::resource('/Libros', LibroController::class);
+Route::get('/Libros/{id}/confirmDelete',[LibroController::class,'confirmDelete']);
+
+
 
 Route::post('/consumoUno', [PrestamosController::class, 'consumoUno'])->name('consumoUno');
 Route::post('/consumoDos', [PrestamosController::class, 'consumoDos'])->name('consumoDos');

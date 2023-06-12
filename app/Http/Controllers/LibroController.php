@@ -4,18 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Libro;
-
+use App\Models\Autores;
 class LibroController extends Controller
 {
     
     public function index()
     {
         
-        return view('Libros.index',['libros'=>Libro::all()]);
+         return view('Libros.index',[
+            'libro'=>Libro::select('libro.*','autores.nombreAutor as autor_nombre')
+            ->join('autores','libro.codigoAutor', '=','autores.id')
+            ->get()
+            
+        ]);
+        
+        //,[
+            //'libros'=>Libro::select('libro.*','autores.nombre as autor_nombre')
+           //->join('autores','libro.codigoAutor','=','autor.id')
+           //->get()
+       // ]
     }
     public function create()
     {
-        return view('Libros.agregarLibros',['libros'=>Libro::all()]);
+        return view('Libros.create',['autor'=>Autores::all()]);
     }
 
     /**
@@ -23,15 +34,15 @@ class LibroController extends Controller
      */
     public function store(Request $request)
     {
-        $autor = new Libro ();
-        $autor->titulo =$request->get('titulo');
-        $autor->ISBN =$request->get('isbn');
-        $autor->Editorial =$request->get('editorial');
-        $autor->paginas =$request->get('paginas');
-        $autor->codigoAutor =$request->get('autor');
-        $autor->save();
+        $libro = new Libro ();
+        $libro->titulo =$request->get('titulo');
+        $libro->isbn =$request->get('isbn');
+        $libro->Editorial =$request->get('editorial');
+        $libro->paginas =$request->get('paginas');
+        $libro->codigoAutor =$request->get('codigoAutor');
+        $libro->save();
  
-        return redirect()->action([LibroController::class, 'index']);
+        return redirect('/Libros');
     }
 
     /**
@@ -47,7 +58,7 @@ class LibroController extends Controller
      */
     public function edit(string $id)
     {
-        //
+       return view('Libros.edit',['libro'=>Libro::find($id),'autor'=>Autores::all()]);
     }
 
     /**
@@ -55,14 +66,31 @@ class LibroController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $libro = Libro::find($id);
+        $libro->titulo =$request->get('titulo');
+        $libro->isbn =$request->get('isbn');
+        $libro->Editorial =$request->get('editorial');
+        $libro->paginas =$request->get('paginas');
+        $libro->codigoAutor =$request->get('codigoAutor');
+        $libro->save();
+
+        return redirect('/Libros');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    
+    public function confirmDelete(string $id)
     {
-        //
+     return view('Libros.confirmDelete',['libro'=>Libro::find($id),'autor'=>Autores::all()]);
+    }
+    
+    
+     public function destroy(string $id)
+    {
+        $libro = Libro::find($id);
+     $libro->delete();
+        return redirect('/Libros');
     }
 }

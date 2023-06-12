@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Autores extends Model
 {
     use HasFactory;
+    protected $table = 'autores';
+    public $timestamps =false;
+    protected $primaryKey = 'id';
 }
