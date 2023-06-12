@@ -5,7 +5,7 @@
 <table class="table table-striped">
     <thead>
 <tr>
-  <th colspan="4"> 
+  <th colspan="12"> 
  <a class="btn btn-primary" href="/Libros/create">Agregar Libro</a>
     </th>
 
@@ -18,6 +18,7 @@
        <th>Editorial</th>
         <th>Páginas</th>
         <th>Autor</th>
+        <th>Acciones</th>
         
 </tr>
     </thead>

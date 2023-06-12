@@ -13,7 +13,8 @@
 
 <tr>
     <th>Código</th>
-     <th>Nombre Autor</th>     
+     <th>Nombre Autor</th>
+     <th>Accioines</th>      
 </tr>
     </thead>
 

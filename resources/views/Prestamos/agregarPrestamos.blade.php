@@ -13,7 +13,7 @@
     <form action="{{ route('consumoUno') }}" method="POST">
         @csrf
     <div id="dropdown" >
-        <h3>Buscar Usuario</h3>
+        <h4>Buscar Usuario</h4>
         <select name="persona" class="form-control">
             <option value="">Selecciona un usuario</option>
             @foreach($superPantalla['ListaUsuarios'] as $usuario)
@@ -21,12 +21,12 @@
             @endforeach
         </select>
         <br>
-        <input type="submit" value="Buscar por persona">
+        <input class="btn btn-primary" type="submit" value="Buscar por persona">
     </div>
     </form>
 <br>
     <div id="grillaPrestamo">
-    <h3>Lista de Préstamo Personal</h3>
+    <h4>Lista de Préstamo Personal</h4>
     <table class="table table-striped" style="width: 100%; margin: 0px auto; text-align: center">
       <thead>
           <tr>
@@ -79,69 +79,14 @@
   </tbody>
   </table>
 </div>
-@foreach($superPantalla['ListaUsuarios'] as $usuario)
+{{-- @foreach($superPantalla['ListaUsuarios'] as $usuario)
                 <option value="{{ $usuario->id }}">{{ $usuario->nombreUsuario }}</option>
-            @endforeach
+            @endforeach --}}
   </div>
 </body>
 </html>
 
 
-<footer class="bg-light text-center text-white">
-    <!-- Grid container -->
-    <div style="">
-    <div class="container p-4 pb-0" >
-      <!-- Section: Social media -->
-      <section class="mb-4">
-        <!-- Facebook -->
-        <a
-          class="btn text-white btn-floating m-1"
-          style="background-color: #3b5998;"
-          href="https://www.facebook.com/soyiudigital"
-          role="button"
-          ><i class="fab fa-facebook-f"></i
-        ></a>
-  
-        <!-- Twitter -->
-        <a
-          class="btn text-white btn-floating m-1"
-          style="background-color: #55acee;"
-          href="https://twitter.com/IUDIGITAL"
-          role="button"
-          ><i class="fab fa-twitter"></i
-        ></a>
-  
-        <!-- Google -->
-        <a
-          class="btn text-white btn-floating m-1"
-          style="background-color: #dd4b39;"
-          href="https://www.linkedin.com/company/unavailable/"
-          role="button"
-          ><i class="fab fa-google"></i
-        ></a>
-  
-        <!-- Instagram -->
-        <a
-          class="btn text-white btn-floating m-1"
-          style="background-color: #ac2bac;"
-          href="https://www.instagram.com/iudigital/"
-          role="button"
-          ><i class="fab fa-instagram"></i
-        ></a>
-  
-        <!-- Linkedin -->
-      </section>
-      <!-- Section: Social media -->
-    </div>
-        <!-- Grid container -->
-    
-        <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2020 Copyright:
-      <a class="text-white" href="https://www.iudigital.edu.co/Paginas/default.aspx">IUDigital de Antioquia</a>
-    </div>
-    <!-- Copyright -->
-  </footer>
 
 
 @endsection('content')
