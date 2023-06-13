@@ -33,7 +33,7 @@ Route::get('/Libros/{id}/confirmDelete',[LibroController::class,'confirmDelete']
 
 
 
-Route::post('/consumoUno', [PrestamosController::class, 'consumoUno'])->name('consumoUno');
+Route::post('/prestamos', [PrestamosController::class, 'consultarPrestamos'])->name('consultarPrestamos');
 Route::post('/consumoDos', [PrestamosController::class, 'consumoDos'])->name('consumoDos');
 Route::post('/consumoTres', [PrestamosController::class, 'consumoTres'])->name('consumoTres');
 

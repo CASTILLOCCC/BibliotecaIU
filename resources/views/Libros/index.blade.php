@@ -18,7 +18,7 @@
        <th>Editorial</th>
         <th>Páginas</th>
         <th>Autor</th>
-        <th>Acciones</th>
+        <th></th>
         
 </tr>
     </thead>

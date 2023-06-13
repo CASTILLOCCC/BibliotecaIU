@@ -7,6 +7,7 @@ use App\Models\Usuarios;
 use Illuminate\Http\Request;
 use App\Models\Prestamos;
 use App\Models\Autores;
+use App\Models\Ejemplar;
 
 
 class PrestamosController extends Controller
@@ -18,8 +19,14 @@ class PrestamosController extends Controller
                 ->join('libro','ejemplar.codigoLibro', '=', 'libro.id')
                 ->join('autores','libro.codigoAutor', '=', 'autores.id')
                     ->select('libro.titulo', 'prestamos.*', 'autores.nombreAutor', 'libro.editorial')
+                    ->where('prestamos.id', '0')
                     ->get(),
-                    'ListaUsuarios' => Usuarios::all()
+                    'ListaUsuarios' => Usuarios::all(),
+                    'ListaAutores' => Autores::all(),
+                    'ListaLibrosStock' => Ejemplar::join('libro','libro.id', '=', 'ejemplar.codigoLibro')
+                ->join('autores','libro.codigoAutor', '=', 'autores.id')
+                    ->select('libro.titulo', 'ejemplar.cantidad', 'autores.nombreAutor', 'libro.editorial')
+                    ->get(),
             ];
 
 
@@ -27,15 +34,19 @@ class PrestamosController extends Controller
             "superPantalla" =>$superPantalla]);
     }
 
-    public function consumoUno()
+    public function consultarPrestamos(Request $request)
     {
+        $usuarioId = $request->input('persona');
         $superPantalla = [
             'ListaPrestamoPersonal' => Prestamos::join('ejemplar','prestamos.codigoEjemplar', '=', 'ejemplar.id')
             ->join('libro','ejemplar.codigoLibro', '=', 'libro.id')
             ->join('autores','libro.codigoAutor', '=', 'autores.id')
+            ->join('usuarios','prestamos.codigoUsuario', '=', 'usuarios.id')
                 ->select('libro.titulo', 'prestamos.*', 'autores.nombreAutor', 'libro.editorial')
+                ->where('usuarios.id', $usuarioId)
                 ->get(),
-            'ListaUsuarios' => Usuarios::where('id', '2')->get()
+            'ListaUsuarios' => Usuarios::all(),
+            'ListaAutores' => Autores::all()
         ];
 
      

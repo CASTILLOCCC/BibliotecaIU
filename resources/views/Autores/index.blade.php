@@ -14,7 +14,7 @@
 <tr>
     <th>Código</th>
      <th>Nombre Autor</th>
-     <th>Acciones</th>      
+     <th></th>      
 </tr>
     </thead>
 
