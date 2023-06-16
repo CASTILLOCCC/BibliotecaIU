@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     
-    <title>CRAI (Centro de Recursos para el Aprendizaje y la Investigacion)</title>
+    <title><CRAI (Centro de Recursos para el Aprendizaje y la Investigacion)</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
@@ -32,7 +32,7 @@
         <a class="nav-link" href="{{url('libros')}}">Libro</a>
         <a class="nav-link" href="#">Usuario</a>
         <a class="nav-link" href="#">Ejemplar</a>
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Préstamo</a>   
+        <a class="nav-link disabled" href="{{url('prestamos')}}" tabindex="-1" aria-disabled="true">Préstamo</a>   
   <br>
       </div>
     </div>

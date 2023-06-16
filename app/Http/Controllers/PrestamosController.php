@@ -29,7 +29,6 @@ class PrestamosController extends Controller
                     ->get(),
             ];
 
-
         return view('Prestamos.agregarPrestamos',[
             "superPantalla" =>$superPantalla]);
     }
@@ -48,8 +47,6 @@ class PrestamosController extends Controller
             'ListaUsuarios' => Usuarios::all(),
             'ListaAutores' => Autores::all()
         ];
-
-     
 
     return view('Prestamos.agregarPrestamos',[
         "superPantalla" =>$superPantalla]);

@@ -7,7 +7,6 @@
         <div class="col-sm-1">
   </div>
             <div id = "white" class="col-5" >
-                <br>
 
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                   <ol class="carousel-indicators">
@@ -38,75 +37,63 @@
                 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
                 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
                 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<br>
 
+                <div class="row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Project Gutenberg</h5>
+                        <p class="card-text">Biblioteca de más de 60.000 libros electrónicos gratuitos. Elija entre los formatos Epub (Publicación electrónica) o Kindle y descárguelos o léalos en línea.</p>
+                        <a href="https://www.gutenberg.org/" class="btn btn-primary">Ver más</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Internet Archive</h5>
+                        <p class="card-text">Biblioteca digital que contiene sitios públicos de la web, libros, textos, audios, conciertos en vivo, videos, programas de televisión, imágenes y programas de software.</p>
+                        <a href="https://archive.org/" class="btn btn-primary">Ver más</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
             </div>
             
             <div id="white" class="col-1">
             </div>
-            <div id="white" class="col-4">
-                Romero (2003) señala que:
+            <br>
+            <div id="white" class="col-5">
+              <div class="card" style="width: 20rem;">
+                <img src="https://www.iudigital.edu.co/CRAI/SliderHomeCrai/nuevos%20libros.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Acerca del CRAI</h5>
+                  <p class="card-text">El Centro de Recursos Abiertos para el Aprendizaje y la Investigación de la IU Digital de Antioquia, es un sitio donde puedes acceder a servicios integrales como apoyo al aprendizaje, este módulo permite realizar solicitudes de prestamos de libros de manera efectiva..</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Bases de Datos</li>
+                  <li class="list-group-item">Cursos de Formación</li>
+                  <li class="list-group-item">Talleres</li>
+                </ul>
+                <div class="card-body">
+                  <a href="https://www.iudigital.edu.co/CRAI/Paginas/default.aspx" class="card-link">CRAI</a>
+                  <a href="https://www.iudigital.edu.co/CRAI/Paginas/default.aspx" class="card-link">Bases de Datos</a>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+        <div>
 
-                « El CRAI o Las bibliotecas universitarias son complejas instituciones con una gran variedad de roles que ofrecen productos y servicios desarrollados a lo largo de la historia y cuyo fin fundamental ha permanecido siendo el mismo: ofrecer acceso al conocimiento científico y de calidad. Ninguna otra institución habría podido arrebatarle su primacía como líder en el suministro de información científica e histórica, hasta el punto de ser consideradas iconos culturales por su papel de guardianes del conocimiento científico (…)
+        </div>
+            <div id="white" class="col-4">
+              
                 
-                Sin embargo, hoy día somos testigos de que su papel de instituciones líderes en el suministro de la información está cambiando y las bibliotecas están renunciando a ese puesto debido básicamente al impacto de la tecnología digital, que ha inundado cada aspecto de nuestra civilización y ha supuesto una revolución no solo en la forma en que almacenamos y transmitimos la información sino también en cómo la buscamos o accedemos a ella (p. 1).»
             </div>
             <div id= "white"class="col-1">
             </div>
-                <footer class="bg-light text-center text-white">
 
-                    <!-- Grid container -->
-                    <div style="">
-                    <div class="container p-4 pb-0" >
-                      <!-- Section: Social media -->
-                      <section class="mb-4">
-                        <!-- Facebook -->
-                        <a
-                          class="btn text-white btn-floating m-1"
-                          style="background-color: #3b5998;"
-                          href="https://www.facebook.com/soyiudigital"
-                          role="button"
-                          ><i class="fab fa-facebook-f"></i
-                        ></a>
-                  
-                        <!-- Twitter -->
-                        <a
-                          class="btn text-white btn-floating m-1"
-                          style="background-color: #55acee;"
-                          href="https://twitter.com/IUDIGITAL"
-                          role="button"
-                          ><i class="fab fa-twitter"></i
-                        ></a>
-                  
-                        <!-- Google -->
-                        <a
-                          class="btn text-white btn-floating m-1"
-                          style="background-color: #dd4b39;"
-                          href="https://www.linkedin.com/company/unavailable/"
-                          role="button"
-                          ><i class="fab fa-google"></i
-                        ></a>
-                  
-                        <!-- Instagram -->
-                        <a
-                          class="btn text-white btn-floating m-1"
-                          style="background-color: #ac2bac;"
-                          href="https://www.instagram.com/iudigital/"
-                          role="button"
-                          ><i class="fab fa-instagram"></i
-                        ></a>
-                  
-                        <!-- Linkedin -->
-                      </section>
-                      <!-- Section: Social media -->
-                    </div>
-                        <!-- Grid container -->
-                    
-                        <!-- Copyright -->
-                    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-                      © 2020 Copyright:
-                      <a class="text-white" href="https://www.iudigital.edu.co/Paginas/default.aspx">IUDigital de Antioquia</a>
-                    </div>
-                    <!-- Copyright -->
-                  </footer>
 
  @endsection('content')
