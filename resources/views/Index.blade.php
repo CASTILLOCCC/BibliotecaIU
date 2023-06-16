@@ -70,7 +70,7 @@
                 <img src="https://www.iudigital.edu.co/CRAI/SliderHomeCrai/nuevos%20libros.png" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Acerca del CRAI</h5>
-                  <p class="card-text">El Centro de Recursos Abiertos para el Aprendizaje y la Investigación de la IU Digital de Antioquia, es un sitio donde puedes acceder a servicios integrales como apoyo al aprendizaje, este módulo permite realizar solicitudes de prestamos de libros de manera efectiva..</p>
+                  <p class="card-text">El Centro de Recursos Abiertos para el Aprendizaje y la Investigación de la IU Digital de Antioquia, es un sitio donde puedes acceder a servicios integrales como apoyo al aprendizaje, este módulo permite realizar solicitudes de prestamos de libros de manera efectiva.</p>
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">Bases de Datos</li>

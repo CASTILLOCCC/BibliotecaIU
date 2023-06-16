@@ -32,7 +32,7 @@
         <a class="nav-link" href="{{url('libros')}}">Libro</a>
         <a class="nav-link" href="#">Usuario</a>
         <a class="nav-link" href="#">Ejemplar</a>
-        <a class="nav-link disabled" href="{{url('prestamos')}}" tabindex="-1" aria-disabled="true">Préstamo</a>   
+        <a class="nav-link" href="{{url('prestamos')}}" tabindex="-1" aria-disabled="true">Préstamo</a>   
   <br>
       </div>
     </div>
