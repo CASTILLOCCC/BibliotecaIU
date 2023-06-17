@@ -32,8 +32,10 @@ Route::resource('/Libros', LibroController::class);
 Route::get('/Libros/{id}/confirmDelete',[LibroController::class,'confirmDelete']);
 
 Route::post('/prestamos', [PrestamosController::class, 'consultarPrestamos'])->name('consultarPrestamos');
-
-
+Route::resource('/Ejemplares', EjemplarController::class);
+Route::get('/Ejemplares/{id}/confirmDelete',[EjemplarController::class,'confirmDelete']);
+Route::resource('/Usuarios', UsuarioController::class);
+Route::get('/Usuarios/{id}/confirmDelete',[UsuarioController::class,'confirmDelete']);
 
 
 Route::post('/libros/store', [LibroController::class, 'store'])->name('libros.store');
@@ -42,11 +44,10 @@ Route::get('/autores', [AutorController::class, 'index'])->name('autores.index')
 Route::get('/prestamos', [PrestamosController::class, 'index'])->name('prestamos.index');
 Route::get('/libros', [LibroController::class, 'index'])->name('libros.index');
 Route::get('/libros/create', [LibroController::class, 'create'])->name('libros.create');
-Route::get('/ejemplares', [EjemplarController::class, 'index'])->name('ejemplares.index');
-Route::get('/usuarios', [UsuarioController::class, 'index'])->name('usuarios.index');
 Route::get('/dropdown', 'UserController@index');
 Route::get('/index', [IndexController::class, 'index'])->name('index.index');
-
+Route::get('/ejemplares', [EjemplarController::class, 'index'])->name('ejemplares.index');
+Route::get('/usuarios', [UsuarioController::class, 'index'])->name('usuarios.index');
 
 Route::get('/search', function (Request $request) {
     $query = $request->input('query');

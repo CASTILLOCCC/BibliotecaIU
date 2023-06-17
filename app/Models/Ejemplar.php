@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ejemplar extends Model
 {
-    protected $table = 'ejemplar';
+   use HasFactory;
     public $timestamps =false;
-    use HasFactory;
+    protected $primaryKey = 'id';
+    protected $table = 'ejemplar';
+    
 }
+
+
