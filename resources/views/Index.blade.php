@@ -88,7 +88,7 @@
         <div>
 
         </div>
-            <div id="white" class="col-4">
+            <div id="white" class="col-3">
             </div>
             <div id= "white"class="col-1">
             </div>

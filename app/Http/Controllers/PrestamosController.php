@@ -46,6 +46,7 @@ class PrestamosController extends Controller
         $devolverId = $request->input('idDevolver');
         $prestarId = $request->input('idPrestar');
         $fechaActual = Carbon::now();
+        $fecha0 = Carbon::createFromFormat('Y-m-d', '2000-01-01');
 
         if ($accionId === 'Devolver') {
 
@@ -59,8 +60,18 @@ class PrestamosController extends Controller
             $ejemplar->save();
     
         }
-        else {
+        else if ($accionId === 'Prestar') {
+            $prestamoCantidad = Ejemplar::find((int)$prestarId);
+            $prestamoCantidad->cantidad = $prestamoCantidad->cantidad - 1;
+            $prestamoCantidad->save();
 
+            $prestamos = new Prestamos ();
+            $prestamos->codigoUsuario =$usuarioId;
+            $prestamos->codigoEjemplar =$prestamoCantidad->id;
+            $prestamos->fechaPrestamo =$fechaActual;
+            $prestamos->fechaDevolucion = $fecha0;
+            $prestamos->cantidad = 1;
+            $prestamos->save();
         }
         
 

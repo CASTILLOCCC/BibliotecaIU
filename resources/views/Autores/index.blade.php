@@ -2,7 +2,7 @@
 @section('content')
 
 
-<table class="table table-striped">
+<table class="table table-striped" class="container col-8">
     <thead>
 <tr>
     <th colspan="4"> 

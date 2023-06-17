@@ -11,9 +11,9 @@
 <body>
     <form id = "formPrestamo" ="{{ route('consultarPrestamos') }}" method="POST">
         @csrf
-  <div class="container col-8">
+  <div class="container col-12">
     <div id="dropdown" >
-        <h4>Buscar Prestamos por Usuario</h4>
+        <h5>Buscar Prestamos por Usuario</h5>
         <select name="persona" class="form-control" onchange="this.form.submit()">
             <option value="">Selecciona un usuario</option>
             @foreach($superPantalla['ListaUsuarios'] as $usuario)
@@ -80,7 +80,7 @@
 <br>
 <br>
 <div id="dropdown" >
-  <h4>Buscar Libro por Autor</h4>
+  <h5>Buscar Libro por Autor</h5>
   <select name="autores" class="form-control" onchange="this.form.submit()">
       <option value="">Selecciona autor</option>
       @foreach($superPantalla['ListaAutores'] as $autores)
@@ -151,8 +151,5 @@
 </script>
 </body>
 </html>
-
-
-
 
 @endsection('content')
