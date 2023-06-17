@@ -28,6 +28,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="{{url('index')}}">Inicio</a>
         <a class="nav-link active" aria-current="page" href="{{url('Autores')}}">Autor</a>
         <a class="nav-link" href="{{url('libros')}}">Libro</a>
         <a class="nav-link" href="#">Usuario</a>

@@ -31,11 +31,10 @@ Route::get('/Autores/{id}/confirmDelete',[AutorController::class,'confirmDelete'
 Route::resource('/Libros', LibroController::class);
 Route::get('/Libros/{id}/confirmDelete',[LibroController::class,'confirmDelete']);
 
-
-
 Route::post('/prestamos', [PrestamosController::class, 'consultarPrestamos'])->name('consultarPrestamos');
-Route::post('/consumoDos', [PrestamosController::class, 'consumoDos'])->name('consumoDos');
-Route::post('/consumoTres', [PrestamosController::class, 'consumoTres'])->name('consumoTres');
+
+
+
 
 Route::post('/libros/store', [LibroController::class, 'store'])->name('libros.store');
 

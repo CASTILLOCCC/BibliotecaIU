@@ -5,27 +5,25 @@
 
 <html>
 <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <title>Lista de Préstamo Personal</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-  <div class="container col-8">
-    <form action="{{ route('consultarPrestamos') }}" method="POST">
+    <form id = "formPrestamo" ="{{ route('consultarPrestamos') }}" method="POST">
         @csrf
+  <div class="container col-8">
     <div id="dropdown" >
-        <h4>Buscar Usuario</h4>
+        <h4>Buscar Prestamos por Usuario</h4>
         <select name="persona" class="form-control" onchange="this.form.submit()">
             <option value="">Selecciona un usuario</option>
             @foreach($superPantalla['ListaUsuarios'] as $usuario)
-                <option value="{{ $usuario->id }}">{{ $usuario->nombreUsuario }}</option>
+                <option value="{{ $usuario->id }}" @if($usuario->id == $superPantalla['ValorUsuario']) selected @endif>{{ $usuario->nombreUsuario }}</option>
             @endforeach
         </select>
         <br>
     </div>
     </form>
-<br>
     <div id="grillaPrestamo">
-    <h4>Lista de Préstamo Personal</h4>
     <table class="table table-striped" style="width: 100%; margin: 0px auto; text-align: center">
       <thead>
           <tr>
@@ -70,8 +68,7 @@
           </td>
           
           <td>
-
-            
+            <a onclick="submitFormDevolver(event, {{ $item->id }})" class="btn btn-warning"><small>Devolver</small></a>
           </td>
        
       @endforeach
@@ -80,29 +77,28 @@
   </tbody>
   </table>
 </div>
+<br>
+<br>
 <div id="dropdown" >
-  <h4>Buscar Libro</h4>
-  <select name="libro" class="form-control">
+  <h4>Buscar Libro por Autor</h4>
+  <select name="autores" class="form-control" onchange="this.form.submit()">
       <option value="">Selecciona autor</option>
       @foreach($superPantalla['ListaAutores'] as $autores)
-          <option value="{{ $autores->id }}">{{ $autores->nombreAutor }}</option>
+          <option value="{{ $autores->id }}" @if($autores->id == $superPantalla['ValorAutor']) selected @endif>{{ $autores->nombreAutor }}</option>
+   
       @endforeach
   </select>
   <br>
-  <input class="btn btn-primary" type="submit" value="Buscar por persona">
 </div>
-
-<br>
 <div id="grillaPrestamo">
-<h4>Lista de Préstamo Autores</h4>
 <table class="table table-striped" style="width: 100%; margin: 0px auto; text-align: center">
   <thead>
       <tr>
           <td>
-              <b>Codigo Autor</b> 
+              <b>Título</b> 
           </td>
           <td>
-              <b>Nombre Autor</b> 
+              <b>Autor</b> 
           </td>
           <td>
               <b>Cantidad</b> 
@@ -113,8 +109,8 @@
       </tr>
   </thead>
 <tbody>
-  {{-- @if(count($superPantalla['ListaAutores']) > 0)
-  @foreach ($superPantalla['ListaAutores'] as $librosStoc)
+  @if(count($superPantalla['ListaLibros']) > 0)
+  @foreach ($superPantalla['ListaLibros'] as $item)
   <tr>
       <td>
           {{ $item->titulo }}
@@ -126,22 +122,33 @@
           {{ $item->cantidad }}
       </td>
       <td>
-        {{ $item->editorial}}
+        <a class="btn btn-success" onclick="submitFormPrestar(event, {{ $item->id }})"><small>Prestar</small></a>
     </td>
-      <td>
-          {{ $item->fechaPrestamo}}
-      </td>
-      
-      <td>
-
-        
-      </td>
    
   @endforeach
-@endif --}}
+@endif
 </tbody>
 </table>
 </div>
+<input name = "idDevolver" type="hidden" />
+<input name = "idPrestar" type="hidden"/>
+<input name = "idAccion" type="hidden"/>
+</form>
+<script>
+    function submitFormDevolver(event, idDevolver){
+        var form = document.getElementById('formPrestamo');
+        document.querySelector('[name="idDevolver"]').value=idDevolver;
+        document.querySelector('[name="idAccion"]').value="Devolver";
+        form.submit();
+     
+    }
+    function submitFormPrestar(event, idPrestar){
+        var form = document.getElementById('formPrestamo');
+        document.querySelector('[name="idPrestar"]').value=idPrestar;
+        document.querySelector('[name="idAccion"]').value="Prestar";
+        form.submit();
+    }
+</script>
 </body>
 </html>
 
