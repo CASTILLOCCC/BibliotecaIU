@@ -90,6 +90,7 @@ class PrestamosController extends Controller
             ->join('autores','libro.codigoAutor', '=', 'autores.id')
             ->select('libro.titulo', 'autores.nombreAutor', 'ejemplar.cantidad','ejemplar.id')
             ->where('autores.id', $autoresId)
+            ->where('ejemplar.cantidad', '>', 0)
             ->get(),
             'ValorUsuario' => $usuarioId,
             'ValorAutor' => $autoresId

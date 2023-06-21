@@ -2,13 +2,14 @@
 @section('content')
 
 
-<table class="table table-striped" class="container col-8">
+<table class="table table-striped">
     <thead>
 <tr>
     <th colspan="4"> 
         <a class="btn btn-primary" href="/Autores/create">Agregar Autor</a>
     </th>
-    
+
+  
 </tr>
 
 <tr>
