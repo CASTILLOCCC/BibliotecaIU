@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Libro;
 use App\Models\Autores;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 class AutorController extends Controller
 
 
@@ -13,19 +15,20 @@ class AutorController extends Controller
     private $nombreAutor;
     private $libro;
     private $autor;
-  
+   
     public function index()
     
     {
-        
         return view('Autores.index',[
-            'autores'=>Autores::all()
-            
+            'autor'=>Autores::all(),
+            'error' => session('error')
         ]);
     }
     public function create()
     {
-         return view('Autores.create');
+         return view('Autores.create', [
+            'errors' => session('errors')
+        ]);
     }
 
     /**
@@ -33,6 +36,15 @@ class AutorController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+          'nombreAutor' => 'required|max:50|',
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect('Autores/create')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
         $autor = new Autores ();
         $autor->nombreAutor =$request->get('nombreAutor');
                 $autor->save();
@@ -53,7 +65,9 @@ class AutorController extends Controller
      */
     public function edit(string $id)
     {
-        return view('Autores.edit',['autor'=>Autores::find($id)]);
+        return view('Autores.edit',[
+            'autor'=>Autores::find($id)
+        ]);
     }
 
     /**
@@ -82,18 +96,18 @@ class AutorController extends Controller
     public function destroy(string $id)
     {
     $autor = Autores::find($id);
-    $autor->delete();
+     $libro = Libro::select('*')
+        ->where('codigoAutor', $id)
+        ->get();
 
-     //$libros = Libro::select('*')
-
-    //->where('autores','libro.codigoAutor',$id)
-   //->get();
-
-    //if ($libros->count()> 0) {
-    //return redirect()->action('AutorController@index');
-    //} else {
-    //$autor->delete();
+        if ($libro->count() > 0) {
+            
+            return redirect()->action([self::class, 'index'])->with('error', 'No puedes eliminar un autor con libros asociados en el sistema.');
+        } else {
+            $autor->delete();
     return redirect('/Autores');
+        }
+    
     }
         
 }

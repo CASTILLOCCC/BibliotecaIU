@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Libro;
 use App\Models\Autores;
+use App\Models\Ejemplar;
+use Illuminate\Support\Facades\Validator;
 class LibroController extends Controller
 {
     
@@ -14,15 +16,11 @@ class LibroController extends Controller
          return view('Libros.index',[
             'libro'=>Libro::select('libro.*','autores.nombreAutor as autor_nombre')
             ->join('autores','libro.codigoAutor', '=','autores.id')
-            ->get()
+            ->get(), 'error' => session('error')
             
         ]);
         
-        //,[
-            //'libros'=>Libro::select('libro.*','autores.nombre as autor_nombre')
-           //->join('autores','libro.codigoAutor','=','autor.id')
-           //->get()
-       // ]
+        
     }
     public function create()
     {
@@ -88,9 +86,20 @@ class LibroController extends Controller
     
     
      public function destroy(string $id)
+    
     {
-        $libro = Libro::find($id);
-     $libro->delete();
-        return redirect('/Libros');
-    }
+    $libro = Libro::find($id);
+     $ejemplar = Ejemplar::select('*')
+        ->where('codigoLibro', $id)
+        ->get();
+
+        if ($ejemplar->count() > 0) {
+            
+            return redirect()->action([self::class, 'index'])->with('error', 'No puedes eliminar un libro con ejemplares asociados en el sistema.');
+        } else {
+            $libro->delete();
+    return redirect('/Libros');
+        }
+    
+}
 }

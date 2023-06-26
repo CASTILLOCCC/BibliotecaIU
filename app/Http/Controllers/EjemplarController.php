@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Libro;
 use App\Models\Ejemplar;
+use App\Models\Prestamos;
+use Illuminate\Support\Facades\Validator;
 class EjemplarController extends Controller
 {
     
@@ -13,7 +15,7 @@ class EjemplarController extends Controller
     return view('Ejemplares.index', [
         'ejemplar' => Ejemplar::select('ejemplar.*', 'libro.titulo as libro_titulo')
             ->join('libro', 'ejemplar.codigoLibro', '=', 'libro.id')
-            ->get()
+            ->get(), 'error' => session('error')
     ]);
 }
         
@@ -83,9 +85,21 @@ class EjemplarController extends Controller
     
     
      public function destroy(string $id)
-    {
-        $ejemplar = Ejemplar::find($id);
-     $ejemplar->delete();
-        return redirect('/Ejemplares');
+   
+
+     {
+    $ejemplar = Ejemplar::find($id);
+     $prestamo = Prestamos::select('*')
+        ->where('codigoEjemplar', $id)
+        ->get();
+
+        if ($prestamo->count() > 0) {
+            
+            return redirect()->action([self::class, 'index'])->with('error', 'No puedes eliminar un ejemplar con prestamos esta asociado en el sistema.');
+        } else {
+            $ejemplar->delete();
+    return redirect('/Ejemplares');
+        }
+    
     }
 }

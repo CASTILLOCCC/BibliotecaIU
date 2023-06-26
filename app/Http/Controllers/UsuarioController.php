@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 use App\Models\Usuarios;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Validator;
+use App\Models\Prestamos;
 //use App\Http\Controllers\Controller;
 
 class UsuarioController extends Controller
@@ -16,7 +18,8 @@ class UsuarioController extends Controller
     public function index()
     {
        return view('Usuarios.Index',[
-            'usuario'=>Usuarios::all()
+            'usuario'=>Usuarios::all(), 
+             'error' => session('error')
             
         ]);
         
@@ -84,11 +87,21 @@ class UsuarioController extends Controller
     ]);
     }
      public function destroy(string $id)
+    
     {
-       
     $usuario = Usuarios::find($id);
-    $usuario->delete();
+     $prestamo = Prestamos::select('*')
+        ->where('codigoUsuario', $id)
+        ->get();
+
+        if ($prestamo->count() > 0) {
+            
+            return redirect()->action([self::class, 'index'])->with('error', 'No puedes eliminar un usuario con prestamos asociados en el sistema.');
+        } else {
+            $usuario->delete();
     return redirect('/Usuarios');
+        }
+    
     }
 }
   
