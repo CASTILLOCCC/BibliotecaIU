@@ -24,14 +24,26 @@ class LibroController extends Controller
     }
     public function create()
     {
-        return view('Libros.create',['autor'=>Autores::all()]);
+        return view('Libros.create',['autor'=>Autores::all(),[
+            'errors' => session('errors')]]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
+
     {
+
+         $validator = Validator::make($request->all(), [
+          'titulo' => 'required|max:30|','isbn'=> 'required|max:20|', 'editorial' => 'required|max:30|','paginas'=> 'required|max:4|',
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect('Libros/create')
+                        ->withErrors($validator)
+                        ->withInput();
+         }
         $libro = new Libro ();
         $libro->titulo =$request->get('titulo');
         $libro->isbn =$request->get('isbn');

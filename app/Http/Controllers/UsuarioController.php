@@ -29,7 +29,10 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        return view('Usuarios.create');
+        return view('Usuarios.create',[
+            'errors' => session('errors')
+        ]);
+        
     }
 
     /**
@@ -37,6 +40,15 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
+         $validator = Validator::make($request->all(), [
+          'nombreUsuario' => 'required|max:50|','telefonoUsuario'=> 'required|min:7|max:10|','direccionUsuario'=> 'required|max:30|',
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect('Usuarios/create')
+                        ->withErrors($validator)
+                        ->withInput();
+ }
         $usuario = new Usuarios();
         $usuario->nombreUsuario =$request->get('nombreUsuario');
         $usuario->telefonoUsuario =$request->get('telefonoUsuario');
@@ -45,6 +57,10 @@ class UsuarioController extends Controller
  
         return redirect('/Usuarios');
     }
+     
+
+
+    
 
     /**
      * Display the specified resource.

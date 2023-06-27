@@ -42,11 +42,7 @@
 </nav>
   <center><H2>CRAI IUD</H2><h5>Centro de Recursos para el Aprendizaje y la Investigación</h5></center> 
 <div class="container-fluid"><hr>
-  @if(isset($error))
-        <div class="alert alert-danger" role="alert">
-            {{ $error }}
-        </div>
-    @endif
+
 @yield('content')
 <footer class="bg-light text-center text-white">
     <!-- Grid container -->

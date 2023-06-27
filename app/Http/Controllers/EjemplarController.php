@@ -27,7 +27,8 @@ class EjemplarController extends Controller
     
     public function create()
     {
-        return view('Ejemplares.create',['libro'=>Libro::all()]);
+        return view('Ejemplares.create',['libro'=>Libro::all(),[
+            'errors' => session('errors')]]);
     }
 
     /**
@@ -35,6 +36,16 @@ class EjemplarController extends Controller
      */
     public function store(Request $request)
     {
+
+         $validator = Validator::make($request->all(), [
+          'localizacion' => 'required|max:30|','cantidad'=> 'required|max:4|',
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect('Ejemplares/create')
+                        ->withErrors($validator)
+                        ->withInput();
+         }
         $ejemplar = new Ejemplar ();
         $ejemplar->localizacion =$request->get('localizacion');
         $ejemplar->cantidad =$request->get('cantidad');
@@ -43,6 +54,7 @@ class EjemplarController extends Controller
  
         return redirect('/Ejemplares');
     }
+    
 
     /**
      * Display the specified resource.
