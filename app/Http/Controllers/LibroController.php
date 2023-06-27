@@ -107,7 +107,7 @@ class LibroController extends Controller
 
         if ($ejemplar->count() > 0) {
             
-            return redirect()->action([self::class, 'index'])->with('error', 'No puedes eliminar un libro con ejemplares asociados en el sistema.');
+            return redirect()->action([self::class, 'index'])->with('error', 'No puedes eliminar un libro, lo tienes asociado con ejemplares en el sistema.');
         } else {
             $libro->delete();
     return redirect('/Libros');

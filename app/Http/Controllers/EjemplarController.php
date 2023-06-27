@@ -107,7 +107,7 @@ class EjemplarController extends Controller
 
         if ($prestamo->count() > 0) {
             
-            return redirect()->action([self::class, 'index'])->with('error', 'No puedes eliminar un ejemplar con prestamos esta asociado en el sistema.');
+            return redirect()->action([self::class, 'index'])->with('error', 'No puedes eliminar un ejemplar, los tienes asociados en el sistema, préstamo.');
         } else {
             $ejemplar->delete();
     return redirect('/Ejemplares');

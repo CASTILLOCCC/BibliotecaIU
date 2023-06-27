@@ -102,7 +102,7 @@ class AutorController extends Controller
 
         if ($libro->count() > 0) {
             
-            return redirect()->action([self::class, 'index'])->with('error', 'No puedes eliminar un autor con libros asociados en el sistema.');
+            return redirect()->action([self::class, 'index'])->with('error', 'No puedes eliminar un autor, tienes libros asociados en el sistema.');
         } else {
             $autor->delete();
     return redirect('/Autores');

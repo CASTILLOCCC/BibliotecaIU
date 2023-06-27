@@ -112,7 +112,7 @@ class UsuarioController extends Controller
 
         if ($prestamo->count() > 0) {
             
-            return redirect()->action([self::class, 'index'])->with('error', 'No puedes eliminar un usuario con prestamos asociados en el sistema.');
+            return redirect()->action([self::class, 'index'])->with('error', 'No puedes eliminar un usuario, lo tienes asociado con prestamo en el sistema.');
         } else {
             $usuario->delete();
     return redirect('/Usuarios');

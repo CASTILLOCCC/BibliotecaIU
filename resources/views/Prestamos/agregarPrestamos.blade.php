@@ -13,9 +13,9 @@
         @csrf
   <div class="container col-12">
     <div id="dropdown" >
-        <h5>Buscar Prestamos por Usuario</h5>
+        <h5>Buscar Préstamos por Usuario</h5>
         <select name="persona" class="form-control" onchange="this.form.submit()">
-            <option value="">Selecciona un usuario</option>
+            <option value="">Selecciona un Usuario</option>
             @foreach($superPantalla['ListaUsuarios'] as $usuario)
                 <option value="{{ $usuario->id }}" @if($usuario->id == $superPantalla['ValorUsuario']) selected @endif>{{ $usuario->nombreUsuario }}</option>
             @endforeach
@@ -40,10 +40,10 @@
                   <b>Editorial</b> 
               </td>
               <td>
-                  <b>Fecha Prestamo</b> 
+                  <b>Fecha Préstamo</b> 
               </td> 
               <td>
-                  <b>Accion</b> 
+                  <b>Acción</b> 
               </td> 
           </tr>
       </thead>
@@ -82,7 +82,7 @@
 <div id="dropdown" >
   <h5>Buscar Libro por Autor</h5>
   <select name="autores" class="form-control" onchange="this.form.submit()">
-      <option value="">Selecciona autor</option>
+      <option value="">Selecciona Autor</option>
       @foreach($superPantalla['ListaAutores'] as $autores)
           <option value="{{ $autores->id }}" @if($autores->id == $superPantalla['ValorAutor']) selected @endif>{{ $autores->nombreAutor }}</option>
    
@@ -104,7 +104,7 @@
               <b>Cantidad</b> 
           </td>
           <td>
-              <b>Accion</b> 
+              <b>Acción</b> 
           </td> 
       </tr>
   </thead>
